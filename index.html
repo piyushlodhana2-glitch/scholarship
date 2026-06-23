@@ -1,158 +1,194 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IITD Scholarship Eligibility Checker</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-</head>
-<body class="bg-gray-50 text-gray-800 font-sans">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>IITD Scholarship Portal</title><style>:root {  --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;  --bg-main: #060b19;  --bg-card: rgba(15, 23, 42, 0.65);  --primary-green: #047857;  --primary-green-hover: #065f46;  --text-light: #f8fafc;  --text-muted: #94a3b8;  --border-glass: rgba(255, 255, 255, 0.08);  --glow-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);  --badge-bg: rgba(4, 120, 87, 0.2);  --badge-text: #34d399;}
+* {  box-sizing: border-box;  margin: 0;  padding: 0;  user-select: none;  -webkit-user-select: none;}
+body {  font-family: var(--font-main);  background-color: var(--bg-main);  color: var(--text-light);  min-height: 100vh;  display: flex;  flex-direction: column;  align-items: center;  justify-content: flex-start;  overflow-x: hidden;  position: relative;}
+#bgCanvas {  position: fixed;  top: 0;  left: 0;  width: 100vw;  height: 100vh;  z-index: -1;  pointer-events: none;}
+/* Header Styles */.app-header {  width: 100%;  background: rgba(4, 120, 87, 0.25);  backdrop-filter: blur(20px);  -webkit-backdrop-filter: blur(20px);  padding: 14px 24px;  border-bottom: 1px solid rgba(4, 120, 87, 0.4);  display: flex;  justify-content: space-between;  align-items: center;  z-index: 1000;  box-shadow: 0 4px 20px rgba(0,0,0,0.3);}.header-title {  font-size: 1.25rem;  font-weight: 800;  color: #ffffff;  letter-spacing: 0.5px;}.header-badge {  background: rgba(255, 255, 255, 0.1);  border: 1px solid rgba(255, 255, 255, 0.2);  padding: 6px 14px;  border-radius: 20px;  font-size: 0.8rem;  font-weight: 600;}
+/* Layout Container */.app-wrapper {  width: 100%;  max-width: 1000px;  padding: 32px 16px;  display: flex;  flex-direction: column;  gap: 24px;  z-index: 10;  position: relative;}
+/* Central Sheet */.main-card {  background: var(--bg-card);  backdrop-filter: blur(15px);  -webkit-backdrop-filter: blur(15px);  border: 1px solid var(--border-glass);  border-radius: 24px;  padding: 32px;  box-shadow: var(--glow-shadow);  display: flex;  flex-direction: column;  gap: 28px;}.card-intro {  text-align: center;}.card-intro h1 {  font-size: 2rem;  font-weight: 800;  color: #ffffff;  margin-bottom: 8px;}.card-intro p {  font-size: 0.95rem;  color: var(--text-muted);}
+/* Content Grid split */.portal-grid {  display: grid;  grid-template-columns: 1fr;  gap: 32px;}@media (min-width: 768px) {  .portal-grid {    grid-template-columns: 380px 1fr;  }}
+/* Form Profile Styles */.profile-panel {  background: rgba(255, 255, 255, 0.02);  border: 1px solid var(--border-glass);  border-radius: 16px;  padding: 24px;  display: flex;  flex-direction: column;  gap: 18px;  height: fit-content;}.panel-title {  font-size: 1.1rem;  font-weight: 700;  color: var(--badge-text);  border-bottom: 1px solid var(--border-glass);  padding-bottom: 10px;  margin-bottom: 4px;}.form-group {  display: flex;  flex-direction: column;  gap: 6px;}.form-group label {  font-size: 0.85rem;  font-weight: 600;  color: var(--text-light);}.form-group select, .form-group input {  background: rgba(15, 23, 42, 0.8);  border: 1px solid rgba(255, 255, 255, 0.15);  border-radius: 8px;  padding: 10px 12px;  color: white;  font-size: 0.9rem;  outline: none;  transition: border-color 0.2s;}.form-group select:focus, .form-group input:focus {  border-color: var(--badge-text);}.btn-submit {  background: var(--primary-green);  color: white;  border: none;  border-radius: 8px;  padding: 12px;  font-size: 0.95rem;  font-weight: 700;  cursor: pointer;  transition: background 0.2s, transform 0.1s;  margin-top: 6px;}.btn-submit:hover {  background: var(--primary-green-hover);}.btn-submit:active {  transform: scale(0.98);}
+/* Results Panel */.results-panel {  display: flex;  flex-direction: column;  gap: 16px;}.results-title {  font-size: 1.1rem;  font-weight: 700;  color: #ffffff;  padding-bottom: 10px;  border-bottom: 1px solid var(--border-glass);}.scholarship-list {  display: flex;  flex-direction: column;  gap: 16px;}
+/* Individual Scholarship Card */.sch-card {  background: rgba(255, 255, 255, 0.03);  border: 1px solid var(--border-glass);  border-radius: 12px;  padding: 20px;  display: flex;  flex-direction: column;  gap: 10px;  transition: transform 0.2s;}.sch-card:hover {  transform: translateY(-2px);}.sch-title {  font-size: 1.05rem;  font-weight: 700;  color: #ffffff;}.sch-badge {  background: var(--badge-bg);  color: var(--badge-text);  padding: 4px 10px;  border-radius: 6px;  font-size: 0.75rem;  font-weight: 700;  width: fit-content;}.sch-desc {  font-size: 0.85rem;  color: var(--text-muted);  line-height: 1.5;}
+.no-results {  text-align: center;  padding: 40px 20px;  color: var(--text-muted);  font-size: 0.95rem;  border: 1px dashed var(--border-glass);  border-radius: 12px;  background: rgba(255,255,255,0.01);}
+.disclaimer {  font-size: 0.75rem;  color: var(--text-muted);  font-style: italic;  margin-top: 8px;}</style></head><body>
 
-    <nav class="bg-emerald-700 text-white shadow-md p-4">
-        <div class="max-w-5xl mx-auto flex justify-between items-center">
-            <h1 class="text-xl font-bold tracking-wide">IITD Scholarship Portal</h1>
-            <span class="text-sm bg-emerald-800 px-3 py-1 rounded-full">Eligibility Estimator</span>
+<canvas id="bgCanvas"></canvas>
+
+<div class="app-header">
+    <div class="header-title">IITD Scholarship Portal</div>
+    <div class="header-badge">Eligibility Estimator</div>
+</div>
+
+<div class="app-wrapper">
+    <div class="main-card">
+        <div class="card-intro">
+            <h1>Find Your Scholarship</h1>
+            <p>Enter your academic and financial details to see what you might qualify for at IIT Delhi.</p>
         </div>
-    </nav>
 
-    <main class="max-w-4xl mx-auto my-10 p-6 bg-white rounded-xl shadow-sm border border-gray-100">
-        
-        <header class="text-center mb-8">
-            <h2 class="text-3xl font-extrabold text-gray-900">Find Your Scholarship</h2>
-            <p class="text-gray-500 mt-2">Enter your academic and financial details to see what you might qualify for at IIT Delhi.</p>
-        </header>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            
-            <section class="bg-gray-50 p-6 rounded-lg border border-gray-200">
-                <h3 class="text-lg font-semibold mb-4 text-emerald-800 border-b pb-2">Your Profile</h3>
-                <form id="eligibilityForm" class="space-y-4">
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Program Type</label>
-                        <select id="program" class="w-full p-2.5 bg-white border border-gray-300 rounded-md focus:ring-2 focus:ring-emerald-500 focus:outline-none">
-                            <option value="BTech">B.Tech / Dual Degree</option>
-                            <option value="MTech">M.Tech / M.Sc</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Category</label>
-                        <select id="category" class="w-full p-2.5 bg-white border border-gray-300 rounded-md focus:ring-2 focus:ring-emerald-500 focus:outline-none">
-                            <option value="General">General / OBC</option>
-                            <option value="SC">Scheduled Caste (SC)</option>
-                            <option value="ST">Scheduled Tribe (ST)</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Annual Family Income (₹)</label>
-                        <select id="income" class="w-full p-2.5 bg-white border border-gray-300 rounded-md focus:ring-2 focus:ring-emerald-500 focus:outline-none">
-                            <option value="450000">Below ₹4.5 Lakhs</option>
-                            <option value="800000">₹4.5 Lakhs - ₹8 Lakhs</option>
-                            <option value="9999999">Above ₹8 Lakhs</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">CGPA (or expected performance)</label>
-                        <input id="cgpa" type="number" step="0.1" min="0" max="10" value="7.0" class="w-full p-2.5 bg-white border border-gray-300 rounded-md focus:ring-2 focus:ring-emerald-500 focus:outline-none">
-                    </div>
-
-                    <button type="button" onclick="checkEligibility()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2.5 px-4 rounded-md transition duration-200 shadow-sm mt-2">
-                        Check Eligibility
-                    </button>
-                </form>
-            </section>
-
-            <section class="flex flex-col">
-                <h3 class="text-lg font-semibold mb-4 text-emerald-800 border-b pb-2">Eligible Scholarships</h3>
+        <div class="portal-grid">
+            <!-- Filter Left Panel -->
+            <div class="profile-panel">
+                <div class="panel-title">Your Profile</div>
                 
-                <div id="resultsList" class="space-y-4 flex-grow">
-                    <div class="text-center py-12 text-gray-400 border-2 border-dashed border-gray-200 rounded-lg">
-                        <p>Fill out the form and click "Check Eligibility" to view results.</p>
-                    </div>
+                <div class="form-group">
+                    <label for="programType">Program Type</label>
+                    <select id="programType">
+                        <option value="btech">B.Tech / Dual Degree</option>
+                        <option value="mtech">M.Tech / Post Graduate</option>
+                    </select>
                 </div>
 
-                <p class="text-xs text-gray-400 mt-4 italic">
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select id="category">
+                        <option value="General">General / OBC</option>
+                        <option value="SC">Scheduled Caste (SC)</option>
+                        <option value="ST">Scheduled Tribe (ST)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="income">Annual Family Income (₹)</label>
+                    <select id="income">
+                        <option value="below4.5">Below ₹4.5 Lakhs</option>
+                        <option value="4.5to9">₹4.5 Lakhs to ₹9 Lakhs</option>
+                        <option value="above9">Above ₹9 Lakhs</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="cgpa">CGPA (or expected performance)</label>
+                    <input type="number" id="cgpa" step="0.1" min="0" max="10" value="7.0">
+                </div>
+
+                <button class="btn-submit" onclick="evaluateScholarships()">Check Eligibility</button>
+            </div>
+
+            <!-- Results Right Panel -->
+            <div class="results-panel">
+                <div class="results-title">Eligible Scholarships</div>
+                <div class="scholarship-list" id="scholarshipContainer">
+                    <!-- Dynamic updates populate here -->
+                </div>
+                <div class="disclaimer">
                     *Note: This is a project prototype. Always cross-verify criteria with the official IITD Academic Section.
-                </p>
-            </section>
+                </div>
+            </div>
         </div>
-    </main>
+    </div>
+</div>
 
-    <script>
-        function checkEligibility() {
-            // Get values from the UI
-            const program = document.getElementById('program').value;
-            const category = document.getElementById('category').value;
-            const income = parseInt(document.getElementById('income').value);
-            const cgpa = parseFloat(document.getElementById('cgpa').value);
+<script>
+// All database entries mirroring the operational logic seen in image_d340eb.png
+const SCHOLARSHIP_DATABASE = [
+    {
+        id: "mcm",
+        title: "IITD Merit-cum-Means (MCM) Scholarship",
+        benefit: "Benefit: Tuition Fee Waiver + ₹1,000/month stipend",
+        desc: "Awarded to meritorious B.Tech students from economically weaker backgrounds.",
+        check: (prog, cat, inc, cgpa) => prog === 'btech' && inc !== 'above9' && cgpa >= 6.0
+    },
+    {
+        id: "freemess",
+        title: "Institute Free Messing & Pocket Allowance",
+        benefit: "Benefit: Free basic mess + ₹250/month pocket allowance",
+        desc: "Available to SC/ST category students based on specified income criteria.",
+        check: (prog, cat, inc, cgpa) => (cat === 'SC' || cat === 'ST') && inc === 'below4.5'
+    },
+    {
+        id: "nsp",
+        title: "NSP Top Class Education Scheme",
+        benefit: "Benefit: Full tuition fee waiver + Living expenses allowance",
+        desc: "Central sector scheme provided by the Ministry of Social Justice & Empowerment.",
+        check: (prog, cat, inc, cgpa) => (cat === 'SC' || cat === 'ST') && inc === 'below4.5' && prog === 'btech'
+    },
+    {
+        id: "inst_remission",
+        title: "Institute Fee Remission Scheme",
+        benefit: "Benefit: 100% or 2/3rd Tuition Fee Waiver",
+        desc: "Tuition fee exemption structure for economically backwards sections pursuing undergraduate tracks.",
+        check: (prog, cat, inc, cgpa) => prog === 'btech' && (inc === 'below4.5' || inc === '4.5to9') && cat === 'General'
+    }
+];
 
-            const resultsContainer = document.getElementById('resultsList');
-            resultsContainer.innerHTML = ''; // Clear prior results
+function evaluateScholarships() {
+    const prog = document.getElementById("programType").value;
+    const cat = document.getElementById("category").value;
+    const inc = document.getElementById("income").value;
+    const cgpa = parseFloat(document.getElementById("cgpa").value) || 0.0;
 
-            let eligibleScholarships = [];
+    const container = document.getElementById("scholarshipContainer");
+    container.innerHTML = "";
 
-            // 1. Merit-cum-Means (MCM) Scholarship Logic
-            if (program === 'BTech' && income <= 450000 && cgpa >= 6.0) {
-                eligibleScholarships.push({
-                    title: "IITD Merit-cum-Means (MCM) Scholarship",
-                    benefit: "Tuition Fee Waiver + ₹1,000/month stipend",
-                    desc: "Awarded to meritorious B.Tech students from economically weaker backgrounds."
-                });
-            }
+    const matches = SCHOLARSHIP_DATABASE.filter(item => item.check(prog, cat, inc, cgpa));
 
-            // 2. Institute Free Messing Logic
-            if ((category === 'SC' || category === 'ST') && income <= 450000) {
-                eligibleScholarships.push({
-                    title: "Institute Free Messing & Pocket Allowance",
-                    benefit: "Free basic mess + ₹250/month pocket allowance",
-                    desc: "Available to SC/ST category students based on specified income criteria."
-                });
-            }
+    if(matches.length === 0) {
+        container.innerHTML = `<div class="no-results">No exact active match found matching your current profile filters. Try updating your expected academic CGPA metrics or filters.</div>`;
+        return;
+    }
 
-            // 3. National Scholarship Portal (NSP) Top Class
-            if ((category === 'SC' || category === 'ST') && income <= 800000) {
-                eligibleScholarships.push({
-                    title: "NSP Top Class Education Scheme",
-                    benefit: "Full tuition fee waiver + Living expenses allowance",
-                    desc: "Central sector scheme provided by the Ministry of Social Justice & Empowerment."
-                });
-            }
+    matches.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "sch-card";
+        card.innerHTML = `
+            <div class="sch-title">${item.title}</div>
+            <div class="sch-badge">${item.benefit}</div>
+            <div class="sch-desc">${item.desc}</div>
+        `;
+        container.appendChild(card);
+    });
+}
 
-            // 4. Base Case / Fallback Donor Scholarship Example
-            if (cgpa >= 8.5) {
-                eligibleScholarships.push({
-                    title: "IITD Alumni/Donor Excellence Awards",
-                    benefit: "Varies (One-time cash prizes up to ₹50,000)",
-                    desc: "High-performance academic merit awards sponsored by distinguished alumni."
-                });
-            }
+// Initial evaluation on payload readiness
+evaluateScholarships();
 
-            // Render Results to UI
-            if (eligibleScholarships.length === 0) {
-                resultsContainer.innerHTML = `
-                    <div class="bg-amber-50 border border-amber-200 text-amber-800 p-4 rounded-lg">
-                        <p class="font-medium">No specific matches found.</p>
-                        <p class="text-sm mt-1">Try lowering the income bracket or checking your CGPA criteria for academic-specific donor grants.</p>
-                    </div>
-                `;
-            } else {
-                eligibleScholarships.forEach(item => {
-                    const card = document.createElement('div');
-                    card.className = "p-4 bg-white border border-emerald-100 rounded-lg shadow-xs hover:border-emerald-300 transition duration-150";
-                    card.innerHTML = `
-                        <h4 class="font-bold text-gray-900">${item.title}</h4>
-                        <span class="inline-block bg-emerald-50 text-emerald-700 text-xs font-semibold my-1.5 px-2.5 py-0.5 rounded-full border border-emerald-200">
-                            Benefit: ${item.benefit}
-                        </span>
-                        <p class="text-sm text-gray-600">${item.desc}</p>
-                    `;
-                    resultsContainer.appendChild(card);
-                });
-            }
+/* ==========================================
+   PARTICLE MESH BACKGROUND CANVAS LOOPS 
+   ========================================== */
+const canvas = document.getElementById('bgCanvas');
+const ctx = canvas.getContext('2d');
+let particles = [];
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+// Populate initial nodes matching pattern
+for (let i = 0; i < 45; i++) {
+    particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 2.5 + 0.5,
+        alpha: Math.random() * 0.5 + 0.1,
+        speed: Math.random() * 0.15 + 0.05
+    });
+}
+
+function animateBackgroundMesh() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    let grad = ctx.createLinearGradient(0, 0, 0, canvas.height);
+    grad.addColorStop(0, '#060b19');
+    grad.addColorStop(1, '#0c152b');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    for (let i = 0; i < particles.length; i++) {
+        let p = particles[i];
+        p.y -= p.speed;
+        if (p.y < -10) {
+            p.y = canvas.height + 10;
+            p.x = Math.random() * canvas.width;
         }
-    </script>
-</body>
-</html>
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(96, 165, 250, ${p.alpha})`; // Maintains matching theme hue
+        ctx.fill();
+    }
+    requestAnimationFrame(animateBackgroundMesh);
+}
+animateBackgroundMesh();
+</script></body></html>
