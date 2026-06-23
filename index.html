@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IIT Delhi - Master Scholarship Eligibility Portal</title>
+    <title>IIT Delhi Scholarship Eligibility Portal</title>
     <style>
         :root {
             --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -22,7 +22,7 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            /* Disabled global user-select restriction to allow form fields to remain fully usable on all touch screen devices */
+            
         }
 
         body {
@@ -70,7 +70,7 @@
             }
         }
 
-        /* App Header Layout: Stacks on small phones, remains linear on screens above 480px width */
+        
         .app-header {
             display: flex;
             flex-direction: column;
@@ -124,14 +124,14 @@
             }
         }
 
-        /* Portal Grid Layout: Stacked by default for mobile viewports */
+        
         .portal-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 16px;
         }
 
-        /* Switches to two columns on Laptops/Desktops */
+        
         @media (min-width: 850px) {
             .portal-grid {
                 grid-template-columns: 380px 1fr;
@@ -158,7 +158,7 @@
                 border-radius: 24px;
                 padding: 24px;
                 gap: 16px;
-                position: sticky; /* Sidebar column sticks to viewport while scrolling main cards */
+                position: sticky; 
                 top: 24px;
             }
         }
@@ -218,7 +218,7 @@
             font-size: 0.9rem;
             outline: none;
             transition: all 0.2s ease;
-            width: 100%; /* Ensures input layout stays safe from structural breakage */
+            width: 100%; 
         }
 
         .form-group select:focus, .form-group input:focus {
@@ -281,14 +281,14 @@
             display: flex;
             flex-direction: column;
             gap: 12px;
-            max-height: none; /* Allows natural scrolling behavior on phone browsers */
+            max-height: none; 
             overflow-y: visible;
             padding-right: 0;
         }
 
         @media (min-width: 850px) {
             .results-list {
-                max-height: 720px; /* Keeps the page neatly anchored if layout is wide on desktop */
+                max-height: 720px; 
                 overflow-y: auto;
                 padding-right: 4px;
             }
@@ -325,7 +325,7 @@
             }
         }
 
-        /* Header structure within a single card: splits horizontally on wider devices, stacks smoothly on small mobile sizes */
+        
         .sch-header {
             display: flex;
             flex-direction: column-reverse;
@@ -418,7 +418,7 @@
 <div class="app-container">
     <div class="app-header">
         <div class="header-logo">🏛️ IITD Scholarship Portal</div>
-        <div class="header-stats">Database Loaded: <span id="dbCount">0</span> Grants</div>
+        <div class="header-stats">Scholarships on portal: <span id="dbCount">0</span> Grants</div>
     </div>
 
     <div class="portal-grid">
@@ -428,13 +428,13 @@
             <div class="form-group">
                 <label for="degree">Degree Stream</label>
                 <select id="degree">
-                    <option value="UG">B.Tech / Dual Degree / UG</option>
-                    <option value="PG">M.Tech / M.Sc / PG</option>
+                    <option value="UG">B.Tech / Dual Degree</option>
+                    <option value="PG">M.Tech / M.Sc</option>
                 </select>
             </div>
 
             <div class="form-group">
-                <label for="year">Year of Enrollment</label>
+                <label for="year">Curreny Year of Study</label>
                 <select id="year">
                     <option value="1">1st Year</option>
                     <option value="2">2nd Year</option>
@@ -448,11 +448,11 @@
                 <label for="department">Academic Department</label>
                 <select id="department">
                     <option value="ANY">Open to All Departments</option>
-                    <option value="EE">Electrical Engineering</option>
-                    <option value="ME">Mechanical Engineering</option>
-                    <option value="TT">Textile & Fibre Technology</option>
-                    <option value="CE">Civil Engineering</option>
-                    <option value="CSE">Computer Science & Engineering</option>
+                    <option value="EE">Only for Electrical Engineering</option>
+                    <option value="ME">Only for Mechanical Engineering</option>
+                    <option value="TT">Only for Textile & Fibre Technology</option>
+                    <option value="CE">Only for Civil Engineering</option>
+                    <option value="CSE">Only for Computer Science & Engineering</option>
                 </select>
             </div>
 
@@ -460,8 +460,8 @@
                 <label for="gender">Gender</label>
                 <select id="gender">
                     <option value="ANY">Any Gender Identity</option>
-                    <option value="Female">Female</option>
-                    <option value="Male">Male</option>
+                    <option value="Female">Only for Female</option>
+                    <option value="Male">Only for Male</option>
                 </select>
             </div>
 
@@ -481,7 +481,7 @@
             </div>
 
             <div class="form-group">
-                <label for="cgpa">Current Cumulative CGPA</label>
+                <label for="cgpa">Current CGPA</label>
                 <input type="number" id="cgpa" step="0.1" min="0" max="10" value="8.0">
             </div>
 
@@ -1921,7 +1921,7 @@ function evaluateScholarships() {
     if (matchesFound === 0) {
         wrapper.innerHTML = `
             <div class="empty-state">
-                No matching donor grants found for your specified data metrics. Adjust parameters or optimize performance filters to broaden your search pattern.
+                No matching scholarships for you!!
             </div>`;
     }
 }
