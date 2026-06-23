@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IITD Scholarship Eligibility Checker</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <nav class="bg-emerald-700 text-white shadow-md p-4">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold tracking-wide">IITD Scholarship Portal</h1>
+            <span class="text-sm bg-emerald-800 px-3 py-1 rounded-full">Eligibility Estimator</span>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto my-10 p-6 bg-white rounded-xl shadow-sm border border-gray-100">
+        
+        <header class="text-center mb-8">
+            <h2 class="text-3xl font-extrabold text-gray-900">Find Your Scholarship</h2>
+            <p class="text-gray-500 mt-2">Enter your academic and financial details to see what you might qualify for at IIT Delhi.</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <section class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                <h3 class="text-lg font-semibold mb-4 text-emerald-800 border-b pb-2">Your Profile</h3>
+                <form id="eligibilityForm" class="space-y-4">
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Program Type</label>
+                        <select id="program" class="w-full p-2.5 bg-white border border-gray-300 rounded-md focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+                            <option value="BTech">B.Tech / Dual Degree</option>
+                            <option value="MTech">M.Tech / M.Sc</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Category</label>
+                        <select id="category" class="w-full p-2.5 bg-white border border-gray-300 rounded-md focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+                            <option value="General">General / OBC</option>
+                            <option value="SC">Scheduled Caste (SC)</option>
+                            <option value="ST">Scheduled Tribe (ST)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Annual Family Income (₹)</label>
+                        <select id="income" class="w-full p-2.5 bg-white border border-gray-300 rounded-md focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+                            <option value="450000">Below ₹4.5 Lakhs</option>
+                            <option value="800000">₹4.5 Lakhs - ₹8 Lakhs</option>
+                            <option value="9999999">Above ₹8 Lakhs</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">CGPA (or expected performance)</label>
+                        <input id="cgpa" type="number" step="0.1" min="0" max="10" value="7.0" class="w-full p-2.5 bg-white border border-gray-300 rounded-md focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+                    </div>
+
+                    <button type="button" onclick="checkEligibility()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2.5 px-4 rounded-md transition duration-200 shadow-sm mt-2">
+                        Check Eligibility
+                    </button>
+                </form>
+            </section>
+
+            <section class="flex flex-col">
+                <h3 class="text-lg font-semibold mb-4 text-emerald-800 border-b pb-2">Eligible Scholarships</h3>
+                
+                <div id="resultsList" class="space-y-4 flex-grow">
+                    <div class="text-center py-12 text-gray-400 border-2 border-dashed border-gray-200 rounded-lg">
+                        <p>Fill out the form and click "Check Eligibility" to view results.</p>
+                    </div>
+                </div>
+
+                <p class="text-xs text-gray-400 mt-4 italic">
+                    *Note: This is a project prototype. Always cross-verify criteria with the official IITD Academic Section.
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        function checkEligibility() {
+            // Get values from the UI
+            const program = document.getElementById('program').value;
+            const category = document.getElementById('category').value;
+            const income = parseInt(document.getElementById('income').value);
+            const cgpa = parseFloat(document.getElementById('cgpa').value);
+
+            const resultsContainer = document.getElementById('resultsList');
+            resultsContainer.innerHTML = ''; // Clear prior results
+
+            let eligibleScholarships = [];
+
+            // 1. Merit-cum-Means (MCM) Scholarship Logic
+            if (program === 'BTech' && income <= 450000 && cgpa >= 6.0) {
+                eligibleScholarships.push({
+                    title: "IITD Merit-cum-Means (MCM) Scholarship",
+                    benefit: "Tuition Fee Waiver + ₹1,000/month stipend",
+                    desc: "Awarded to meritorious B.Tech students from economically weaker backgrounds."
+                });
+            }
+
+            // 2. Institute Free Messing Logic
+            if ((category === 'SC' || category === 'ST') && income <= 450000) {
+                eligibleScholarships.push({
+                    title: "Institute Free Messing & Pocket Allowance",
+                    benefit: "Free basic mess + ₹250/month pocket allowance",
+                    desc: "Available to SC/ST category students based on specified income criteria."
+                });
+            }
+
+            // 3. National Scholarship Portal (NSP) Top Class
+            if ((category === 'SC' || category === 'ST') && income <= 800000) {
+                eligibleScholarships.push({
+                    title: "NSP Top Class Education Scheme",
+                    benefit: "Full tuition fee waiver + Living expenses allowance",
+                    desc: "Central sector scheme provided by the Ministry of Social Justice & Empowerment."
+                });
+            }
+
+            // 4. Base Case / Fallback Donor Scholarship Example
+            if (cgpa >= 8.5) {
+                eligibleScholarships.push({
+                    title: "IITD Alumni/Donor Excellence Awards",
+                    benefit: "Varies (One-time cash prizes up to ₹50,000)",
+                    desc: "High-performance academic merit awards sponsored by distinguished alumni."
+                });
+            }
+
+            // Render Results to UI
+            if (eligibleScholarships.length === 0) {
+                resultsContainer.innerHTML = `
+                    <div class="bg-amber-50 border border-amber-200 text-amber-800 p-4 rounded-lg">
+                        <p class="font-medium">No specific matches found.</p>
+                        <p class="text-sm mt-1">Try lowering the income bracket or checking your CGPA criteria for academic-specific donor grants.</p>
+                    </div>
+                `;
+            } else {
+                eligibleScholarships.forEach(item => {
+                    const card = document.createElement('div');
+                    card.className = "p-4 bg-white border border-emerald-100 rounded-lg shadow-xs hover:border-emerald-300 transition duration-150";
+                    card.innerHTML = `
+                        <h4 class="font-bold text-gray-900">${item.title}</h4>
+                        <span class="inline-block bg-emerald-50 text-emerald-700 text-xs font-semibold my-1.5 px-2.5 py-0.5 rounded-full border border-emerald-200">
+                            Benefit: ${item.benefit}
+                        </span>
+                        <p class="text-sm text-gray-600">${item.desc}</p>
+                    `;
+                    resultsContainer.appendChild(card);
+                });
+            }
+        }
+    </script>
+</body>
+</html>
