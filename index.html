@@ -405,48 +405,1350 @@ const MASTER_SCHOLARSHIP_DB = [
         desc: "Welfare scheme allocated specifically to lower-income structural brackets (family income less than Rs. 8 Lakhs) within the SC and ST categories.",
         rules: { category: ["SC", "ST"], maxIncome: 800000 }
     },
-    {
-        name: "Class of 1984 Batch Endowment Scholarship",
-        amount: "Full Ride Waiver",
-        desc: "Instituted by the historic 1984 batch for a top ranking student whose home threshold runs beneath 8L.",
-        rules: { degree: ["UG"], maxIncome: 800000 }
-    },
-    {
-        name: "Class of 1992 Memorial Grant",
-        amount: "Flexi Tuition Support",
-        desc: "Targeting undergraduate engineering paths with evaluated financial indices situated precisely between 4.5 and 9 Lakhs.",
-        rules: { degree: ["UG"], minIncome: 450000, maxIncome: 900000 }
-    },
-    {
-        name: "Budhwanti Mrig Memorial Educational Scholarship",
-        amount: "₹1,00,000 / Year",
-        desc: "Exclusively awarded to exceptional, incoming first-year female engineering candidates.",
-        rules: { degree: ["UG"], targetYears: [1], gender: ["Female"], maxIncome: 900000 }
-    },
-    {
-        name: "ABB Donor Scholarship",
-        amount: "₹25,000 / Year",
-        desc: "Specialized corporate donor grant running across Electrical Engineering power/automation pipelines.",
-        rules: { degree: ["UG"], targetYears: [2], minCgpa: 7.5, department: ["EE"] }
-    },
-    {
-        name: "Akshat Gupta Scholarship",
-        amount: "₹50,000 / Year",
-        desc: "Awarded to second year UG students demonstrating a mix of robust academics alongside targeted financial assistance paths.",
-        rules: { degree: ["UG"], targetYears: [2], minCgpa: 6.0, maxIncome: 450000 }
-    },
-    {
-        name: "Class of 1974 Electrical Engineering Female Grant",
-        amount: "Full Tuition Coverage",
-        desc: "Endowed specifically to support female engineering students inside the Electrical department track.",
-        rules: { degree: ["UG"], gender: ["Female"], department: ["EE"], maxIncome: 900000 }
-    },
-    {
-        name: "Dalmia Scholarship Program (Nilgiri & Mechanical Tracks)",
-        amount: "Up to ₹1,00,000 / Year",
-        desc: "Generously supported by Mr. Raghu Hari Dalmia to benefit undergraduate students in Mechanical Engineering or residing in Nilgiri Hostel.",
-        rules: { degree: ["UG"], maxIncome: 800000, department: ["ME", "ANY"] }
+  {
+    name: "ABB Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "One scholarship to an Undergraduate student in the discipline of Electrical Engineering (Power and Automation) in the 2nd year on the basis of merit and aptitude to pursue studies/ projects in subjects of relevance to ABB.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [2],
+      minCgpa: 7.5
     }
+  },
+  {
+    name: "Bina Dewan Singh Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "One scholarship (every year) to a 1st year student of the undergraduate programmes (B.Tech./Dual degree) on the basis of MCM having family income not exceeding Rs. 6.0 lacs p.a. Preference is given to women students in Mechanical Engineering.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      maxIncome: 600000,
+      minCgpa: 6.0
+    }
+  },
+  {
+    name: "Budhwanti Mrig Memorial Educational Scholarships",
+    amount: "₹1,00,000 / Year",
+    desc: "The scholarship is awarded to 2 first year (B.Tech/Dual Degree) female students every year based on merit cum means and JEE Advanced rank who are required to pay the full tuition fee.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      gender: ["Female"],
+      minIncome: 500000,
+      maxIncome: 900000,
+      minCgpa: 7.0
+    }
+  },
+  {
+    name: "Buti Foundation Scholarship",
+    amount: "₹45,000 / Year",
+    desc: "One scholarship is awarded to a first year undergraduate (B.Tech Degree) student based on merit cum means and JEE Advanced Rank.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      maxIncome: 800000,
+      minCgpa: 8.0
+    }
+  },
+  {
+    name: "Bhatia Scholarship",
+    amount: "₹30,000 / Year",
+    desc: "One scholarship is awarded to a first year undergraduate (B.Tech Degree) student based on merit cum means and JEE Advanced Rank.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      maxIncome: 800000,
+      minCgpa: 8.0
+    }
+  },
+  {
+    name: "CS&E 1998 Batch Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "One scholarship is awarded to a 2nd year student from Computer Science & Engineering Department on the basis of MCM. Student shall not be recipient of any other MCM scholarship.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [2]
+    }
+  },
+  {
+    name: "G.S. Bhasin Scholarship",
+    amount: "₹22,500 / Year",
+    desc: "One scholarship to a 1st year student of B.Tech. Dual Degree (every year) from Chemical Engineering Department on the basis of MCM and JEE Rank whose family income does not exceed Rs. 5.0 lacs per annum.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      maxIncome: 500000,
+      minCgpa: 7.0
+    }
+  },
+  {
+    name: "Gobind H. Keswani Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "One scholarship to a 1st year student of B.Tech./ Dual Degree (every year) on the basis of MCM and JEE Rank whose family income does not exceed Rs 5.0 lacs per annum.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      maxIncome: 500000,
+      minCgpa: 7.0
+    }
+  },
+  {
+    name: "Gyan Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "One scholarship is awarded to an undergraduate student based on merit cum means. The family income should be up to 4.5 lakhs. The scholarship will be given to first year students based on recommendation of the committee.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      maxIncome: 450000,
+      minCgpa: 7.5
+    }
+  },
+  {
+    name: "IITDAA Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "One scholarship is awarded to an undergraduate student based on merit cum means. The family income should be up to 4.5 lakhs. The scholarship will be given to first year students based on recommendation of the committee.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      maxIncome: 450000,
+      minCgpa: 7.5
+    }
+  },
+  {
+    name: "Indian Women's Association, Bonn Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "One scholarship is awarded to a 1st year UG student on the basis of JEE Advanced Rank and MCM (Parental income up to Rs. 4.5 lacs per annum).",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      maxIncome: 450000,
+      minCgpa: 7.0
+    }
+  },
+  {
+    name: "Jwala Batch of 1984 Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "One scholarship is awarded to a 3rd year student from Jwalamukhi Hostel on the basis of MCM. Student shall not be recipient of any other MCM Scholarship.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [3],
+      minCgpa: 6.0
+    }
+  },
+  {
+    name: "Kalpna Chawla Scholarship",
+    amount: "₹35,000 / Year",
+    desc: "Two scholarships are awarded to the pre-final and final year students having CGPA of 8.0 or above. Scholastic aptitude, creative/scientific write-up, interest, and drive towards excellence are the prime criteria.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [3, 4],
+      minCgpa: 8.0
+    }
+  },
+  {
+    name: "Keshar Devi Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "Two scholarships are awarded to 3rd year students of the Mechanical Engineering Department with the highest CGPA at the end of the 2nd year and having parental income up to Rs. 9.0 lakhs per annum.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [3],
+      maxIncome: 900000,
+      minCgpa: 7.5
+    }
+  },
+  {
+    name: "Mrs. Shanti Chopra Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "Two merit-cum-means scholarships are awarded every year to a 3rd year & 4th year B.Tech student of the Electrical Engineering Department whose parental income is up to Rs. 9 lakhs per annum and CGPA is greater than 7.5 at the end of the 2nd year.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [3, 4],
+      maxIncome: 900000,
+      minCgpa: 7.5
+    }
+  },
+  {
+    name: "Niligiri 1990 Batch Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "One scholarship is awarded to a UG student of Nilgiri Hostel (completed 1st year or 2nd year) for a period of one year with a minimum CGPA of 6.0. Parental income is not a bar; selection considers extracurricular, hostel, and academic involvement.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [2, 3],
+      minCgpa: 6.0
+    }
+  },
+  {
+    name: "Nirmala Devi Raghunath Das Sarin Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "One scholarship is awarded to a 2nd year B.Tech student of Textile Technology on the basis of MCM having a CGPA of 6.0 or more. Awarded to the student with the lowest means.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [2],
+      minCgpa: 6.0
+    }
+  },
+  {
+    name: "Rupa Moudgill Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "One scholarship is awarded to a first year undergraduate student based on merit cum means. Parental income should be less than Rs. 2.00 Lakh.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      maxIncome: 200000,
+      minCgpa: 7.5
+    }
+  },
+  {
+    name: "Pramila Moudgill Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "One scholarship is awarded to a first year undergraduate student based on merit cum means. Parental income should be less than Rs. 2.00 Lakh.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      maxIncome: 200000,
+      minCgpa: 7.5
+    }
+  },
+  {
+    name: "S. C. Mehrotra's Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "Every year a merit-cum-means scholarship is awarded to a 2nd year UG student in the Civil Engineering department up to the 4th year with a minimum CGPA of 7.0 at the end of the 1st year.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [2],
+      minCgpa: 7.0
+    }
+  },
+  {
+    name: "Shri B. N. & Smt. Kamlesh Sharma Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "One scholarship is awarded to a 3rd year student from the Chemical Engineering Department securing a minimum CGPA of 6.5 and having a track record of extracurricular activities.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [3],
+      minCgpa: 6.5
+    }
+  },
+  {
+    name: "Shri Beni Madho Singh Scholarship",
+    amount: "₹36,000 / Year",
+    desc: "One scholarship to a 2nd year student of B.Tech., Dual degree, or Integrated M.Tech. with a minimum CGPA of 7.5. The awardee should be the best sports person amongst the U.G. freshers.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [2],
+      minCgpa: 7.5
+    }
+  },
+  {
+    name: "Suresh Chandra Memorial Trust Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "One Scholarship is awarded to a 1st year female student of the Electrical or Mechanical Engineering Department on the basis of MCM and JEE Advanced rank with parental income up to Rs. 4.5 Lakhs per annum.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      gender: ["Female"],
+      maxIncome: 450000,
+      minCgpa: 7.5
+    }
+  },
+  {
+    name: "Singal Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "One scholarship is awarded to a 1st year student only for one year of any discipline on the basis of merit at the end of the 1st semester. Family income up to Rs. 4.50 Lakhs per annum.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      maxIncome: 450000,
+      minCgpa: 6.0
+    }
+  },
+  {
+    name: "Tara Chand Chopra Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "One scholarship is awarded to a 1st year student based on merit cum means and JEE Advanced Rank. The family income should be up to 4.5 lakhs.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      maxIncome: 450000,
+      minCgpa: 7.5
+    }
+  },
+  {
+    name: "Upma Memorial Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "One scholarship is awarded to a 1st year student only for the 2nd and 3rd semester of any discipline on the basis of MCM at the end of the 1st semester. Family income up to Rs. 4.50 Lakh per annum.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      maxIncome: 450000,
+      minCgpa: 6.0
+    }
+  },
+  {
+    name: "Taravati Ram Gopal Mehra Foundation Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "One Scholarship is tenable to a 1st year UG student on the basis of JEE Advanced Rank. The family annual income should not exceed Rs. 5.00 Lakhs. Tuition fee waiver recipients are ineligible.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      maxIncome: 500000,
+      minCgpa: 6.5
+    }
+  },
+  {
+    name: "Dalmia Scholarship Program / Manohar Goela Scholarship Program",
+    amount: "₹25,000 / Year",
+    desc: "Scholarships will be awarded to meritorious students who are staying in Nilgiri Hostel and whose parental income is less than 8 lakhs per annum. Recipient cannot hold any other scholarship.",
+    rules: {
+      degree: ["UG"],
+      maxIncome: 800000
+    }
+  },
+  {
+    name: "Prof. A.K. Mahalanabis Memorial Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "One scholarship is awarded every year to a 1st year UG student of the Electrical Engineering Department who has the highest AIR in JEE, subject to maintaining a CGPA of 9.00.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      minCgpa: 9.0
+    }
+  },
+  {
+    name: "Kundan Lal Trust Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "One scholarship is awarded to a 1st year student only for one year of any discipline on the basis of merit at the end of the 1st semester. Family income up to Rs. 4.50 Lakh per annum.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      maxIncome: 450000,
+      minCgpa: 6.0
+    }
+  },
+  {
+    name: "Rajiv Bambawale Trust Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "One scholarship is awarded to a 1st year student whose parental income is the least, based on merit cum means and JEE Advanced Rank. The family income should be up to 9 lakhs.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      maxIncome: 900000,
+      minCgpa: 6.0
+    }
+  },
+  {
+    name: "Pranab K. Chatterjee Family Undergraduate Fellowship",
+    amount: "₹25,000 / Year",
+    desc: "One scholarship awarded to a 2nd year UG student of the Chemical Engineering Department having a CGPA of 6.75 and parental income up to Rs. 4.5 Lakhs per annum.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [2],
+      maxIncome: 450000,
+      minCgpa: 6.75
+    }
+  },
+  {
+    name: "Major Dr. Nityananda Tyagi Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "One scholarship is awarded to a 1st year student based on merit cum means. The family income should be up to 4.5 lakhs.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      maxIncome: 450000,
+      minCgpa: 7.5
+    }
+  },
+  {
+    name: "Meera Mehta Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "One scholarship is awarded to a 1st year undergraduate student based on merit cum means. The family income should be up to 4.5 lakhs.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      maxIncome: 450000,
+      minCgpa: 7.5
+    }
+  },
+  {
+    name: "Vivekanand Fellowship",
+    amount: "₹25,000 / Year",
+    desc: "One scholarship is awarded to a 1st year student based on merit cum means. The family income should be up to 4.5 lakhs.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      maxIncome: 450000,
+      minCgpa: 7.5
+    }
+  },
+  {
+    name: "Dhan Kaur Memorial Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "Two scholarships are awarded for 1st year UG students from the beginning of the 1st semester based on MCM. Parental income below Rs. 9 lakh. One allocated to Computer Science & Engg. and one to the Electrical Engg. Department.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      maxIncome: 900000,
+      minCgpa: 7.5
+    }
+  },
+  {
+    name: "Nirmal Parsad Jain Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "One scholarship is awarded to a first year undergraduate student based on merit cum means. The family income should be up to 4.5 lakhs.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      maxIncome: 450000,
+      minCgpa: 7.5
+    }
+  },
+  {
+    name: "Krishna Engineering Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "One scholarship is awarded to an undergraduate student from the Civil Engineering Department based on merit cum means and JEE All India Rank (AIR). Family income up to Rs. 4.5 lakhs.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      maxIncome: 450000,
+      minCgpa: 7.0
+    }
+  },
+  {
+    name: "Mudit Sharma Memorial Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "One scholarship is awarded to a 2nd year B.Tech. Engineering Physics student who has the highest CGPA at the end of the 1st year.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [2]
+    }
+  },
+  {
+    name: "Jagdishwar & Maya Jaluria Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "One scholarship is awarded to a 2nd year B.Tech student of the Mechanical Engineering Department based on the highest CGPA in the 1st year.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [2],
+      minCgpa: 7.5
+    }
+  },
+  {
+    name: "Amritraj Chibber Family Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "One scholarship is awarded to a 2nd year UG Chemical Engineering Department (B.Tech./Dual-Degree) student with a minimum CGPA of 7.0 and family annual income less than 4.5 lakhs.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [2],
+      maxIncome: 450000,
+      minCgpa: 7.0
+    }
+  },
+  {
+    name: "Mehar Chand Motia Devi Kohli Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "One scholarship is awarded to an undergraduate student based on merit cum means and JEE Advanced Rank. Given to a first year student with family income up to 4.5 lakhs.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      maxIncome: 450000,
+      minCgpa: 7.5
+    }
+  },
+  {
+    name: "Jain Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "Two scholarships are awarded to B.Tech students based on merit cum means and JEE Advanced Rank. Given to first year students with family income up to 4.5 Lakhs.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      maxIncome: 450000,
+      minCgpa: 7.5
+    }
+  },
+  {
+    name: "Sadashiv Shankar Gokhale Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "One scholarship is awarded to a 2nd year student of B.Tech./Dual Degree programme. Students having a CGPA of 7.0 or higher in the first year are eligible, awarded to the one with the lowest means.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [2],
+      minCgpa: 7.0
+    }
+  },
+  {
+    name: "Akshat Gupta Scholarship",
+    amount: "₹30,000 / Year",
+    desc: "One scholarship is awarded to a B.Tech 2nd year student based on merit cum means with a CGPA of 6.0 or above and whose parental income is up to 4.5 lakhs per annum, or to a physically disabled candidate.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [2],
+      maxIncome: 450000,
+      minCgpa: 6.0
+    }
+  },
+  {
+    name: "Anandpuri Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "One scholarship is awarded to an undergraduate student based on merit cum means and JEE Advanced Rank. Family income up to 4.5 lakhs, given to a first year student.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      maxIncome: 450000,
+      minCgpa: 7.5
+    }
+  },
+  {
+    name: "Prof. H.R. Gulati Scholarship",
+    amount: "₹25,000 / Year",
+    desc: "One scholarship is awarded to a first year B.Tech (Engineering Physics) student based on merit cum means with family income up to 4.5 lakhs.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      maxIncome: 450000,
+      minCgpa: 7.5
+    }
+  },
+  {
+    name: "Mrs. Malti Singh and Shri Ram Rishi Singh Memorial Scholarship",
+    amount: "₹36,000 / Year",
+    desc: "3 MCM scholarships will be awarded to one undergraduate girl student each of 2nd year, 3rd year, and 4th year every year having family income not exceeding 5 lakh per annum and a minimum CGPA of 7.5.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [2, 3, 4],
+      gender: ["Female"],
+      maxIncome: 500000,
+      minCgpa: 7.5
+    }
+  },
+  {
+    name: "Dalmia Scholarship Program for Nilgiri Students",
+    amount: "₹66,000 / Year",
+    desc: "Only for undergraduate students staying in Nilgiri Hostel. Parental income should be less than Rs. 8 Lakh per annum. Selection will be on the basis of an interview.",
+    rules: {
+      degree: ["UG"],
+      maxIncome: 800000
+    }
+  },
+  {
+    name: "Swami Sivananda Memorial Scholarship",
+    amount: "₹30,000 / Year",
+    desc: "Four scholarships to be awarded to girl students, one from each year of the four-year B.Tech programme, on the basis of academic and financial background.",
+    rules: {
+      degree: ["UG"],
+      gender: ["Female"]
+    }
+  },
+  {
+    name: "Janak Raj Malhotra Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "One scholarship is awarded to a first year undergraduate. Parental income should be between 5 to 9 lakh, and the student must be required to pay full tuition fee. Lowest family income is favored.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      minIncome: 500000,
+      maxIncome: 900000
+    }
+  },
+  {
+    name: "Ramesh & Chanda Kapur Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "One scholarship is awarded to a first year undergraduate. Parental income should be between 5 to 9 lakh, and the student must be required to pay full tuition fee. Lowest family income is favored.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      minIncome: 500000,
+      maxIncome: 900000
+    }
+  },
+  {
+    name: "Manohar Lal & Indravati Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "One scholarship is awarded to a first year undergraduate. Parental income should be between 5 to 9 lakh, and the student must be required to pay full tuition fee. Lowest family income is favored.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      minIncome: 500000,
+      maxIncome: 900000
+    }
+  },
+  {
+    name: "Bihari Lal & Lajwanti Batra Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "One scholarship is awarded to a first year undergraduate. Parental income should be between 5 to 9 lakh, and the student must be required to pay full tuition fee. Lowest family income is favored.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      minIncome: 500000,
+      maxIncome: 900000
+    }
+  },
+  {
+    name: "Ravinder Kumar Rishi Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "One scholarship is awarded to a first year undergraduate. Parental income should be between 5 to 9 lakh, and the student must be required to pay full tuition fee. Lowest family income is favored.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      minIncome: 500000,
+      maxIncome: 900000
+    }
+  },
+  {
+    name: "Sai Pramod Kumar Atmakuru Memorial Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "The scholarship is awarded to 2 first year undergraduate students in the department of Computer Science & Engineering. Annual family income must be between 5 to 9 lakh Rs. Student with lowest income is favored.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      minIncome: 500000,
+      maxIncome: 900000
+    }
+  },
+  {
+    name: "Bimal Saroj Charitable Society Scholarship",
+    amount: "₹1,00,00, / Year",
+    desc: "One scholarship is awarded to a first year undergraduate. Parental income should be between 5 to 9 lakh, and the student must be required to pay full tuition fee. Lowest family income is favored.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      minIncome: 500000,
+      maxIncome: 900000
+    }
+  },
+  {
+    name: "Surbhi Goel Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "One scholarship is awarded to a first year undergraduate having a JEE rank not lower than 500. Parental income should be between 5 to 9 lakh, paying full tuition fee. Priority given to female students.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      minIncome: 500000,
+      maxIncome: 900000
+    }
+  },
+  {
+    name: "Pushpa Sankhla Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "One scholarship is awarded to a first year undergraduate female student. Parental income should be between 5 to 9 lakh, and the student must be required to pay full tuition fee.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      gender: ["Female"],
+      minIncome: 500000,
+      maxIncome: 900000
+    }
+  },
+  {
+    name: "One Himalayan Scholarship (Female Student)",
+    amount: "₹1,00,000 / Year",
+    desc: "One scholarship is awarded to a first year undergraduate female student belonging to specific Himalayan States. Parental income between 5 to 9 lakh, required to pay full tuition fee.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      gender: ["Female"],
+      minIncome: 500000,
+      maxIncome: 900000
+    }
+  },
+  {
+    name: "Sarla and Ratan Gupta Memorial Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "Awarded to one first year UG Girl student with annual family income in the range of Rs. 5 lakhs to 9 Lakh, paying full tuition fee. Renewable subject to maintaining a CGPA more than 5.0.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      gender: ["Female"],
+      minIncome: 500000,
+      maxIncome: 900000,
+      minCgpa: 5.0
+    }
+  },
+  {
+    name: "ZTE Telecom India Pvt Ltd.",
+    amount: "₹1,00,000 / Year",
+    desc: "One scholarship is awarded to 3 first year undergraduate students from the Electrical Engineering Department. Parental annual income should be between 5 to 9 lakhs, lowest income favored.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      minIncome: 500000,
+      maxIncome: 900000,
+      minCgpa: 6.0
+    }
+  },
+  {
+    name: "INOX FELLOWSHIP",
+    amount: "₹25,000 / Year",
+    desc: "Covers top CGPA students in 2nd, 3rd, and 4th year of Chemical Engineering, as well as students in the 5 to 9 lakh income bracket paying full tuition fee.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [2, 3, 4],
+      minIncome: 500000,
+      maxIncome: 900000
+    }
+  },
+  {
+    name: "SM Shah Scholarship",
+    amount: "₹2,00,000 / Year",
+    desc: "Eligible for Undergraduate students of B.Tech./Dual degree programs based on JEE Rank whose annual family income is in the range of Rs. 5 lakhs to 9 Lakhs and who pay full tuition fee. Renewable subject to CGPA of 8.0 or more.",
+    rules: {
+      degree: ["UG"],
+      minIncome: 500000,
+      maxIncome: 900000,
+      minCgpa: 8.0
+    }
+  },
+  {
+    name: "Manvik & Naitvik Garg Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "Awarded to 2 Undergraduate students of Mechanical Engineering whose parental annual income is between Rs. 5 lakh to 9 lakhs and who pay full tuition fee. Renewable subject to CGPA of 7.0.",
+    rules: {
+      degree: ["UG"],
+      minIncome: 500000,
+      maxIncome: 900000,
+      minCgpa: 7.0
+    }
+  },
+  {
+    name: "Estee Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "One scholarship is awarded to a first year undergraduate student of Computer Science & Engineering or Mathematics and Computing. Parental income between Rs. 5 lakh to 9 lakhs, required to pay full tuition fee. Renewable subject to CGPA of 7.0.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      minIncome: 500000,
+      maxIncome: 900000,
+      minCgpa: 7.0
+    }
+  },
+  {
+    name: "A. V. Sankaran Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "One scholarship is awarded to a first year undergraduate student having the highest JEE Advanced Rank. Parental income between Rs. 5 lakh to 9 lakhs, paying full tuition fee. Renewable subject to CGPA of 7.0.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      minIncome: 500000,
+      maxIncome: 900000,
+      minCgpa: 7.0
+    }
+  },
+  {
+    name: "Mrs. Navlakhi Devi Scholarship",
+    amount: "₹50,000 / Year",
+    desc: "One scholarship is awarded to a first year undergraduate student of Computational Mechanics based on highest JEE Advanced Rank. Parental income between Rs. 5 lakh to 9 lakhs, paying full tuition fee. Renewable subject to CGPA of 7.0.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      minIncome: 500000,
+      maxIncome: 900000,
+      minCgpa: 7.0
+    }
+  },
+  {
+    name: "Pushpa Singh Scholarship",
+    amount: "₹50,000 / Year",
+    desc: "One scholarship is awarded to a first year female undergraduate student of Computational Mechanics based on highest JEE Advanced Rank. Parental income between Rs. 5 lakh to 9 lakhs, paying full tuition fee. Renewable subject to CGPA of 7.0.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      gender: ["Female"],
+      minIncome: 500000,
+      maxIncome: 900000,
+      minCgpa: 7.0
+    }
+  },
+  {
+    name: "Batch of 1968 Electrical Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "One scholarship is awarded to a first year undergraduate student of the Electrical Engineering Department based on highest JEE Advanced Rank. Parental income less than 9 Lakh, paying full tuition fee. Renewable subject to CGPA of 7.0.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      maxIncome: 900000,
+      minCgpa: 7.0
+    }
+  },
+  {
+    name: "Batch of 1968 Electrical - Honoring \"Priti Monteiro Shankar\" scholarship.",
+    amount: "₹1,00,000 / Year",
+    desc: "One scholarship is awarded to a first year undergraduate student of the Electrical Engineering Department based on highest JEE Advanced Rank. Parental income less than 9 Lakh, paying full tuition fee. Renewable subject to CGPA of 7.0.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      maxIncome: 900000,
+      minCgpa: 7.0
+    }
+  },
+  {
+    name: "Prof. Narendra Kumar & Shaila Bansal Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "This Scholarship is for a female undergraduate student of B.Tech/Dual Degree of any discipline. Parental combined annual income less than 9 lakh, paying full tuition fee. Awarded to highest JEE Advanced Rank. Renewable subject to CGPA 7.",
+    rules: {
+      degree: ["UG"],
+      gender: ["Female"],
+      maxIncome: 900000,
+      minCgpa: 7.0
+    }
+  },
+  {
+    name: "Class of 1974 Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "This Scholarship is for a female undergraduate student of B.Tech in Electrical Engineering. Combined parental income between Rs 15 lakh to 20 lakh, required to pay full tuition fee. Highest JEE Rank is awarded. Renewable subject to CGPA 7.5.",
+    rules: {
+      degree: ["UG"],
+      gender: ["Female"],
+      minIncome: 1500000,
+      maxIncome: 2000000,
+      minCgpa: 7.5
+    }
+  },
+  {
+    name: "Cookson India Private Limited Scholarship (1)",
+    amount: "₹1,00,000 / Year",
+    desc: "2nd year undergraduate students of B.Tech./Dual degree programme of Chemical Engineering and Material Science Engineering whose family income is between Rs. 4 Lakhs to 9 Lakhs and pay full tuition fee are eligible. Renewable subject to CGPA of 7.0.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [2],
+      minIncome: 400000,
+      maxIncome: 900000,
+      minCgpa: 7.0
+    }
+  },
+  {
+    name: "Cookson India Private Limited Scholarship (2)",
+    amount: "₹2,75,000 / Year",
+    desc: "3rd year undergraduate female students of B.Tech./Dual degree programme of Energy Science Engineering whose family income is between Rs. 5 Lakhs to 12 Lakhs and pay full tuition fee are eligible. Renewable subject to CGPA above 5.0.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [3],
+      gender: ["Female"],
+      minIncome: 500000,
+      maxIncome: 1200000,
+      minCgpa: 5.0
+    }
+  },
+  {
+    name: "Global Vectra Helicorp Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "2nd, 3rd and 4th year undergraduate students of B.Tech/Dual Degree whose family annual income is less than Rs. 9 lakhs and pay full tuition fee are eligible. Evaluated on highest CGPA, awarded to one male and one female from each target year.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [2, 3, 4],
+      maxIncome: 900000
+    }
+  },
+  {
+    name: "OPPO Genius Scholarship",
+    amount: "₹1,75,000 / Year",
+    desc: "1st year undergraduate students of B.Tech programme who scored top rank in JEE. Two students with highest rank taking admission in the Computer Science & Engineering Department will be awarded.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1]
+    }
+  },
+  {
+    name: "Endowment Merit Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "1st year students selected based on JEE Rank, and 2nd, 3rd & 4th year students selected based on highest CGPA. 15 male and 15 female students of each entry year are awarded each year.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1, 2, 3, 4]
+    }
+  },
+  {
+    name: "Bimla Dogra Memorial Scholarship",
+    amount: "₹2,00,000 / Year",
+    desc: "To support a second year Engineering Physics student to undertake a research internship at a reputed university/institution abroad. Must have earned 60 credits with a CGPA of at least 8.0.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [2],
+      minCgpa: 8.0
+    }
+  },
+  {
+    name: "Tower Research Capital India Meritorious Scholarship",
+    amount: "₹2,00,000 / Year",
+    desc: "Selected by the Donor following their own criteria that may vary from year to year.",
+    rules: {
+      degree: ["UG"]
+    }
+  },
+  {
+    name: "B-83 Merit Award",
+    amount: "₹30,000 / Year",
+    desc: "Selected by the Dean of Students Committee.",
+    rules: {
+      degree: ["UG"]
+    }
+  },
+  {
+    name: "Dalmia Scholarship",
+    amount: "₹ Amount Mentioned",
+    desc: "For B.Tech. 2nd year Mechanical Engineering and Production & Industrial Engineering students. Gross parental annual income must be less than 8 lakhs. No other scholarship permitted.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [2],
+      maxIncome: 800000
+    }
+  },
+  {
+    name: "OP Jindal Scholarship",
+    amount: "₹80,000 / Year",
+    desc: "Selected by the Donor following their own criteria that may vary from year to year.",
+    rules: {
+      degree: ["UG"]
+    }
+  },
+  {
+    name: "Agrawal Metal Works Pvt Ltd. Scholarship",
+    amount: "₹2,00,000 / Year",
+    desc: "Selected by the Donor following their own criteria that may vary from year to year.",
+    rules: {
+      degree: ["UG"]
+    }
+  },
+  {
+    name: "Chimanlal Choksi Charity Foundation Scholarship",
+    amount: "₹30,000 / Year",
+    desc: "Selected by the Donor following their own criteria that may vary from year to year.",
+    rules: {
+      degree: ["UG"]
+    }
+  },
+  {
+    name: "Mittal Resonance Scholarship",
+    amount: "₹1,50,000 / Year",
+    desc: "Selected by the Donor following their own criteria that may vary from year to year.",
+    rules: {
+      degree: ["UG"]
+    }
+  },
+  {
+    name: "Aditya Birla Scholarship",
+    amount: "₹1,50,000 / Year",
+    desc: "Selected by the Donor following their own criteria that may vary from year to year.",
+    rules: {
+      degree: ["UG"]
+    }
+  },
+  {
+    name: "Hans Scholarship (Disability)",
+    amount: "₹1,20,000 / Year",
+    desc: "Selected by the Donor following their own criteria that may vary from year to year.",
+    rules: {
+      degree: ["UG"]
+    }
+  },
+  {
+    name: "Shraman Foundation Scholarship",
+    amount: "₹63,000 / Year",
+    desc: "Selected by the Donor following their own criteria that may vary from year to year (Amounts vary between 15,000 to 63,000).",
+    rules: {
+      degree: ["UG"]
+    }
+  },
+  {
+    name: "Winnie Sum Merit Cum Means scholarship",
+    amount: "₹65,000 / Year",
+    desc: "Merit cum means scholarship text details not fully itemized but standard institutional framework applies.",
+    rules: {
+      degree: ["UG"]
+    }
+  },
+  {
+    name: "Hans Scholarship (Women)",
+    amount: "₹1,00,000 / Year",
+    desc: "Selected by the Donor following their own criteria that may vary from year to year.",
+    rules: {
+      degree: ["UG"],
+      gender: ["Female"]
+    }
+  },
+  {
+    name: "Nand Lal Memorial Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "Computer Science and Engineering scholarship based on highest JEE Rank whose family income is less than 9 Lakh and who pays full tuition fee. Renewable subject to CGPA of 7.0.",
+    rules: {
+      degree: ["UG"],
+      maxIncome: 900000,
+      minCgpa: 7.0
+    }
+  },
+  {
+    name: "Professor Narender Kumar & Shaila Bansal Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "One scholarship is awarded to a first year female student of B.Tech/Dual Degree of any discipline. Combined annual income less than 9 Lakh and required to pay full tuition fee. Highest JEE Advanced Rank selected. Renewable subject to CGPA of 7.0.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      gender: ["Female"],
+      maxIncome: 900000,
+      minCgpa: 7.0
+    }
+  },
+  {
+    name: "Mrs. Sarla and Mr. Anand Prakash Gupta Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "Given to students of B.Tech/Dual Degree Programme based on highest JEE Advanced rank. Family income less than INR 9 lakh and paying full tuition fee. Renewable subject to CGPA of 7.0.",
+    rules: {
+      degree: ["UG"],
+      maxIncome: 900000,
+      minCgpa: 7.0
+    }
+  },
+  {
+    name: "Stacket Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "One scholarship is awarded to a first year female student of B.Tech/ Dual Degree of any discipline. Combined annual income less than 9 Lakh and required to pay full tuition fee. Selected via highest JEE Advance Rank. Renewable subject to CGPA of 7.0.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      gender: ["Female"],
+      maxIncome: 900000,
+      minCgpa: 7.0
+    }
+  },
+  {
+    name: "1992 Batch Memorial Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "1st Year Undergraduate 3 B.Tech/Dual Degree Students based on highest JEE Advanced rank whose family income should be in the range of Rs. 4.50 to 9.00 lakh per annum. Renewable subject to CGPA of 5.0.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      minIncome: 450000,
+      maxIncome: 900000,
+      minCgpa: 5.0
+    }
+  },
+  {
+    name: "Kathuria Family Scholarship for Girls",
+    amount: "₹1,00,000 / Year",
+    desc: "1st Year Undergraduate B.Tech/Dual Degree Female Students whose family income is less than Rs. 10.00 lakh per annum. Awarded to JEE Advanced ranks between 500-1500. Renewable subject to CGPA of 7.00.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      gender: ["Female"],
+      maxIncome: 1000000,
+      minCgpa: 7.0
+    }
+  },
+  {
+    name: "Prof. Manoj Kulshrestha Memorial Scholarship",
+    amount: "₹50,000 / Year",
+    desc: "1st Year Undergraduate B.Tech/Dual Degree two students (one male / one female, preferably Civil Engg.) from EWS category based on highest JEE Advanced Rank. Family income less than Rs. 1 lakh. Renewable subject to CGPA of 6.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      maxIncome: 100000,
+      minCgpa: 6.0
+    }
+  },
+  {
+    name: "Veena and Jiwan Jain 63eb3 Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "1st Year Undergraduate B.Tech/ Dual Degree Students from the Electrical Engg. Department based on highest JEE Advanced Rank. Family income less than Rs. 9 lakh, paying full tuition fee. Renewable subject to CGPA of 7.0.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      maxIncome: 900000,
+      minCgpa: 7.0
+    }
+  },
+  {
+    name: "OPLUS Genius+ Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "1st Year Undergraduate B.Tech. from the Dept. of Computer Science & Engineering.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1]
+    }
+  },
+  {
+    name: "Sh. ML Prabhakar (Late) & Mrs. K Prabhakar Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "1st Year Undergraduate B.Tech/Dual Degree Students based on highest JEE Advanced Rank. Family income less than Rs. 9 lakh, paying full tuition fee. Renewable subject to CGPA of 6.0.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      maxIncome: 900000,
+      minCgpa: 6.0
+    }
+  },
+  {
+    name: "Prof. Birendra Kumar Sawhney Scholarship",
+    amount: "₹50,000 / Year",
+    desc: "1st Year Student of MSc Physics whose family income should be less than Rs. 9 lakh per annum. Evaluated via highest JAM rank. Renewable for 2 years subject to CGPA of 7.0.",
+    rules: {
+      degree: ["PG"],
+      targetYears: [1],
+      maxIncome: 900000,
+      minCgpa: 7.0
+    }
+  },
+  {
+    name: "Prasad & Syamala Akkineni Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "1st Year Undergraduate B.Tech/Dual Degree Student based on JEE Advanced Rank whose family income should be less than Rs. 9 lakh per annum and required to pay the full tuition fee.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      maxIncome: 900000
+    }
+  },
+  {
+    name: "Amit & Deepali Sinha Foundation Scholarship",
+    amount: "₹60,000 / Year",
+    desc: "1st Year Undergraduate B.Tech/Dual Degree 15 students based on JEE Advanced rank whose family income is less than Rs. 9 lakh per annum and who are not availing Vidya Lakshmi Loan Scheme. Renewable subject to CGPA of 6.0.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      maxIncome: 900000,
+      minCgpa: 6.0
+    }
+  },
+  {
+    name: "Amit & Deepali Sinha Foundation Fellowship",
+    amount: "₹2,75,000 / Year",
+    desc: "The Fellowship is for undergraduate students joining the institute for B.Tech/Dual Degree based on JEE Advanced Rank. At least one awarded to the top women ranker. Renewable subject to CGPA of 8.0.",
+    rules: {
+      degree: ["UG"],
+      minCgpa: 8.0
+    }
+  },
+  {
+    name: "SMR-Stempowering Women Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "1st Year Undergraduate B.Tech/Dual Degree Female Student from Elec. Engg. Dept. Family income between Rs. 5 lakh to Rs. 9 lakh, required to pay full tuition fee. Highest JEE Rank selected. Renewable subject to CGPA of 7.0.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      gender: ["Female"],
+      minIncome: 500000,
+      maxIncome: 900000,
+      minCgpa: 7.0
+    }
+  },
+  {
+    name: "Indu and Vijay Godura Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "2nd year undergraduate student of B.Tech./Dual degree programs based on highest CGPA at the end of 1st year, whose family income is less than Rs. 9 lakhs. Renewable subject to CGPA of 7.0.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [2],
+      maxIncome: 900000,
+      minCgpa: 7.0
+    }
+  },
+  {
+    name: "Parshotam Radhakishin Rajani Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "1st Year Undergraduate B.Tech/Dual Degree Female Student from Electrical Engineering Department. Family income less than Rs. 9 lakh, paying full tuition fee. Renewable subject to CGPA of 7.0.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      gender: ["Female"],
+      maxIncome: 900000,
+      minCgpa: 7.0
+    }
+  },
+  {
+    name: "CSM Scholarship",
+    amount: "₹50,000 / Year",
+    desc: "1st Year Undergraduate B.Tech/Dual Degree Student based on Family income between Rs. 5 lakh to Rs. 9 lakh, paying full tuition fee. Selected via highest JEE Advanced rank. Renewable subject to CGPA of 7.0.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      minIncome: 500000,
+      maxIncome: 900000,
+      minCgpa: 7.0
+    }
+  },
+  {
+    name: "Shri Ambar Bajpai Memorial Financial Aid",
+    amount: "₹1,00,000 / Year",
+    desc: "1st Year Undergraduate B.Tech/Dual Degree Female Student on JEE Advanced rank whose family income is in the range of Rs. 5 lakh to Rs. 9 lakh, paying full tuition fee. Selection based on lowest family income. Renewable subject to CGPA of 6.0.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      gender: ["Female"],
+      minIncome: 500000,
+      maxIncome: 900000,
+      minCgpa: 6.0
+    }
+  },
+  {
+    name: "Prof. Narendra Kumar & Shaila Bansal Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "1st Year Undergraduate B.Tech/ Dual Degree Female Student only. Family income less than Rs. 9 lakh, required to pay full tuition fee and not receiving any other waiver. Highest JEE Advanced rank selected. Renewable subject to CGPA of 7.0.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      gender: ["Female"],
+      maxIncome: 900000,
+      minCgpa: 7.0
+    }
+  },
+  {
+    name: "Suman Gupta Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "1st Year Undergraduate B.Tech/ Dual Degree Student from Chemical Engineering department whose family income should be less than Rs. 10 lakh, required to pay full tuition fee. Highest JEE Advanced rank selected. Renewable subject to CGPA of 7.5.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      maxIncome: 1000000,
+      minCgpa: 7.5
+    }
+  },
+  {
+    name: "Squarepoint Foundation Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "1st, 2nd, and 3rd year Undergraduate Students of B.Tech/Dual Degree of Mathematics. Family income less than 10 lakh per annum, required to pay full tuition fee. Higher years must have a CGPA of 8 or more. Renewable subject to CGPA of 8.0.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1, 2, 3],
+      maxIncome: 1000000,
+      minCgpa: 8.0
+    }
+  },
+  {
+    name: "Sunder Lal Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "Preferably female students of Civil Engineering from vernacular mediums across 1st, 2nd, and 3rd years. Family income between Rs. 5 lakh to Rs. 9 lakh, paying full tuition fee. Renewable subject to CGPA of 7.5.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1, 2, 3],
+      minIncome: 500000,
+      maxIncome: 900000,
+      minCgpa: 7.5
+    }
+  },
+  {
+    name: "Jwala Batch of 1984 Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "One scholarship awarded to a 2nd year student (B.Tech./Dual-Degree) from Jwalamukhi Hostel having parental income less than 9 lakh Rs. Highest CGPA in first year selected. Renewable subject to CGPA of 7.0.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [2],
+      maxIncome: 900000,
+      minCgpa: 7.0
+    }
+  },
+  {
+    name: "Smt Urmila Singh Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "1st Year Undergraduate B.Tech/ Dual Degree Student based on lowest family income in the range of Rs. 4.5 lakh to Rs. 9 lakh, paying full tuition fee. Renewable subject to CGPA of 7.5.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      minIncome: 450000,
+      maxIncome: 900000,
+      minCgpa: 7.5
+    }
+  },
+  {
+    name: "DB Corp Scholarship",
+    amount: "₹2,00,000 / Year",
+    desc: "1st Year Undergraduate B.Tech/ Dual Degree 3 Students based on JEE Advanced rank from family income range of Rs. 5 lakh to Rs. 12 lakh, paying full tuition fee. 1 award earmarked for a female student. Renewable subject to CGPA of 8.0.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      minIncome: 500000,
+      maxIncome: 1200000,
+      minCgpa: 8.0
+    }
+  },
+  {
+    name: "NK Securities Research Scholarship",
+    amount: "₹2,00,000 / Year",
+    desc: "1st Year Undergraduate B.Tech/Dual Degree 5 Students based on JEE Advanced rank. Family income range of Rs. 5 lakh to Rs. 12 lakh, paying full tuition fee. Renewable subject to CGPA of 6.0.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      minIncome: 500000,
+      maxIncome: 1200000,
+      minCgpa: 6.0
+    }
+  },
+  {
+    name: "Satish Chandra Pushpa Agarwal Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "1st Year Undergraduate B.Tech/ Dual Degree Student from family income range of Rs. 5 lakh to Rs. 12 lakh, paying full tuition fee. JEE rank below 2500, lowest income selected. Renewable subject to CGPA of 7.5.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      minIncome: 500000,
+      maxIncome: 1200000,
+      minCgpa: 7.5
+    }
+  },
+  {
+    name: "T.P. Sundararajan",
+    amount: "₹1,00,000 / Year",
+    desc: "1st Year Undergraduate B.Tech. Degree Student of Electrical Engineering Department from family income range of Rs. 4.5 lakh to Rs. 10 lakh, paying full tuition fee. Lowest income selected. Renewable subject to CGPA of 5.0.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1],
+      minIncome: 450000,
+      maxIncome: 1000000,
+      minCgpa: 5.0
+    }
+  },
+  {
+    name: "Nikunj Agarwal Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "3rd Year Undergraduate B.Tech/Dual Degree of Mathematics and Computing who completed 5th semester with a CGPA of 7.0. Family income up to Rs. 12 lakh, paying full tuition fee. Lowest income selected.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [3],
+      maxIncome: 1200000,
+      minCgpa: 7.0
+    }
+  },
+  {
+    name: "1968 Electrical Batch Endowment Scholarship (Second Scholarship)",
+    amount: "₹1,00,000 / Year",
+    desc: "Scholarship given to two 1st Year Undergraduate B.Tech Degree Students with the lowest family income and highest JEE Advanced Rank.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [1]
+    }
+  },
+  {
+    name: "Anoop Garg Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "3rd Year Undergraduate student in the Textile Engineering B.Tech Degree programme based on family income range of Rs. 5 lakh to Rs. 10 lakh.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [3],
+      minIncome: 500000,
+      maxIncome: 1000000
+    }
+  },
+  {
+    name: "Shri Surendra Narayan Scholarship",
+    amount: "₹1,00,000 / Year",
+    desc: "2nd Year Undergraduate student in the Electrical Engineering B.Tech Degree programme based on lowest family income between Rs. 5 lakh to Rs. 10 lakh, requiring 100% Tuition fee payment. Renewable for three years subject to CGPA of 6.0.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [2],
+      minIncome: 500000,
+      maxIncome: 1000000,
+      minCgpa: 6.0
+    }
+  },
+  {
+    name: "Nirmal Prasad Jain Scholarship (Second Scholarship)",
+    amount: "₹1,00,000 / Year",
+    desc: "2nd Year Undergraduate student in the B.Tech Degree programme based on lowest family income between Rs. 5 lakh to Rs. 10 lakh, requiring 100% Tuition fee payment. Renewable for three years subject to CGPA of 6.0.",
+    rules: {
+      degree: ["UG"],
+      targetYears: [2],
+      minIncome: 500000,
+      maxIncome: 1000000,
+      minCgpa: 6.0
+    }
+  }
+
 ];
 
 document.getElementById("dbCount").innerText = MASTER_SCHOLARSHIP_DB.length;
